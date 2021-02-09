@@ -80,6 +80,7 @@ os.rename(main_old_name + county_old_name3 + sbx, main_new_name + county_new_nam
 #屏東
 os.rename(main_old_name + county_old_name4 + sbn, main_new_name + county_new_name4 + sbn)
 os.rename(main_old_name + county_old_name4 + sbx, main_new_name + county_new_name4 + sbx)
+
 #苗栗
 os.rename(main_old_name + county_old_name5 + sbn, main_new_name + county_new_name5 + sbn)
 os.rename(main_old_name + county_old_name5 + sbx, main_new_name + county_new_name5 + sbx)
