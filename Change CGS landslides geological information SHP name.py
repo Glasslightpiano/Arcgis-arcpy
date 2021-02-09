@@ -60,6 +60,7 @@ county_new_name16 = 'Taitung'
 county_old_name17 = '臺南'
 county_new_name17 = 'Tainan'
 
+#副檔名
 file1 = '.dbf'
 file2 = '.prj'
 file3 = '.shp'
