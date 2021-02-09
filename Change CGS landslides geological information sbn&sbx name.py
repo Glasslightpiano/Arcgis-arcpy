@@ -60,9 +60,9 @@ county_new_name16 = 'Taitung'
 county_old_name17 = '臺南'
 county_new_name17 = 'Tainan'
 
+#副檔名
 sbn = '.sbn'
 sbx = '.sbx'
-
 
 #更改資料夾名稱
 #宜蘭
