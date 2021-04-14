@@ -39,7 +39,6 @@ for country_in_lower in file_L:
                 railway_target_path = "D:\\ArcMap test\\Statcountry\\"
                 railway_emptyFC = "C_and_S_railway.shp"
                 schemaType = "No_TEST"
-
                 arcpy.Append_management(railway_work, railway_target_path + railway_emptyFC, schemaType, "", "")
                 print  country_name + "_railway features are Append."
 
