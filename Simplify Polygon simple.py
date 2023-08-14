@@ -50,7 +50,8 @@ outFeature = "C:\\Fast Deal\\gadm_simplify_all.gdb\\adm2_class1"
 10) Square Miles
 11) Square Millimeters
 12) Square Yards
-13) Unknow"""
+13) Unknow
+"""
 
 # Simplification Toblerance unit set
 maxAllow = "20000 Meters"
