@@ -25,6 +25,7 @@ mdbCounty = mdbFile + "\\County_MOI_92"
 # Query variables.
 villageQuery = "Village_NLSC_Query"
 townQuery = "Town_MOI_92_Query"
+countyQuery = "County_MOI_92_Query"
 
 # Output to FeatureDataSet.
 villageInFD = outFD + "Check_topo_geo\\Village"
@@ -35,14 +36,15 @@ countyInFD = outFD + "Check_topo_geo\\County"
 mdbGeometry = outFD + "CheckGeometry_inMDB"
 FDGeometry = outFD + "CheckGeometry_inFD"
 
-# Process: Village and Town set "Definition Query".
+# Process: set "Definition Query".
 arcpy.MakeFeatureLayer_management(mdbVillage, villageQuery, "(IsNull( [Add_Date] ) AND (IsNull( [Del_Date] ) OR Now() <= [Del_Date] ) ) OR ( [Add_Date] <=Now() AND (Now() <= [Del_Date] OR IsNull( [Del_Date] )) )", "", "OBJECTID_1 OBJECTID_1 VISIBLE NONE;Shape Shape VISIBLE NONE;OBJECTID OBJECTID VISIBLE NONE;UID UID VISIBLE NONE;PRO_ID PRO_ID VISIBLE NONE;COUNTY_ID COUNTY_ID VISIBLE NONE;VILLAGE_ID VILLAGE_ID VISIBLE NONE;V_Name V_Name VISIBLE NONE;V_Desc V_Desc VISIBLE NONE;Add_Date Add_Date VISIBLE NONE;Add_Accept Add_Accept VISIBLE NONE;Del_Date Del_Date VISIBLE NONE;Del_Accept Del_Accept VISIBLE NONE;CRS CRS VISIBLE NONE;Meridian Meridian VISIBLE NONE;Remark Remark VISIBLE NONE;Area Area VISIBLE NONE;T_Name T_Name VISIBLE NONE;C_Name C_Name VISIBLE NONE;X X VISIBLE NONE;Y Y VISIBLE NONE;Substitute Substitute VISIBLE NONE;V_Name_e V_Name_e VISIBLE NONE;T_Name_e T_Name_e VISIBLE NONE;C_Name_e C_Name_e VISIBLE NONE;TOWN_ID TOWN_ID VISIBLE NONE;Shape_Leng Shape_Leng VISIBLE NONE;Shape_Length Shape_Length VISIBLE NONE;Shape_Area Shape_Area VISIBLE NONE")
 arcpy.MakeFeatureLayer_management(mdbTown, townQuery, "(IsNull( [Add_Date] ) AND (IsNull( [Del_Date] ) OR Now() <= [Del_Date] ) ) OR ( [Add_Date] <=Now() AND (Now() <= [Del_Date] OR IsNull( [Del_Date] )) )", "", "OBJECTID_1 OBJECTID_1 VISIBLE NONE;Shape Shape VISIBLE NONE;OBJECTID OBJECTID VISIBLE NONE;T_UID T_UID VISIBLE NONE;Town_ID Town_ID VISIBLE NONE;T_Name T_Name VISIBLE NONE;T_Desc T_Desc VISIBLE NONE;Add_Date Add_Date VISIBLE NONE;Add_Accept Add_Accept VISIBLE NONE;Del_Date Del_Date VISIBLE NONE;Del_Accept Del_Accept VISIBLE NONE;Remark Remark VISIBLE NONE;County_ID County_ID VISIBLE NONE;T_Name_e T_Name_e VISIBLE NONE;C_Name C_Name VISIBLE NONE;C_Name_e C_Name_e VISIBLE NONE;Shape_Leng Shape_Leng VISIBLE NONE;Shape_Length Shape_Length VISIBLE NONE;Shape_Area Shape_Area VISIBLE NONE")
+arcpy.MakeFeatureLayer_management(mdbCounty, countyQuery, "(IsNull( [Add_Date] ) AND (IsNull( [Del_Date] ) OR Now() <= [Del_Date] ) ) OR ( [Add_Date] <=Now() AND (Now() <= [Del_Date] OR IsNull( [Del_Date] )) )", "", "OBJECTID_1 OBJECTID_1 VISIBLE NONE;Shape Shape VISIBLE NONE;OBJECTID OBJECTID VISIBLE NONE;T_UID T_UID VISIBLE NONE;Town_ID Town_ID VISIBLE NONE;T_Name T_Name VISIBLE NONE;T_Desc T_Desc VISIBLE NONE;Add_Date Add_Date VISIBLE NONE;Add_Accept Add_Accept VISIBLE NONE;Del_Date Del_Date VISIBLE NONE;Del_Accept Del_Accept VISIBLE NONE;Remark Remark VISIBLE NONE;County_ID County_ID VISIBLE NONE;T_Name_e T_Name_e VISIBLE NONE;C_Name C_Name VISIBLE NONE;C_Name_e C_Name_e VISIBLE NONE;Shape_Leng Shape_Leng VISIBLE NONE;Shape_Length Shape_Length VISIBLE NONE;Shape_Area Shape_Area VISIBLE NONE")
 
 # Process: Copy features
 arcpy.CopyFeatures_management(villageQuery, villageInFD)
 arcpy.CopyFeatures_management(townQuery, townInFD)
-arcpy.CopyFeatures_management(mdbCounty, countyInFD)
+arcpy.CopyFeatures_management(countyQuery, countyInFD)
 
 # Process: Check Geometry_inMDB
 arcpy.CheckGeometry_management(villageQuery, mdbGeometry + "_Village")
